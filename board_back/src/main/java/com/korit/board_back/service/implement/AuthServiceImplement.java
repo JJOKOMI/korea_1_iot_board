@@ -60,7 +60,7 @@ public class AuthServiceImplement implements AuthService {
             return ResponseDto.setFailed(ResponseMessage.NOT_MATCH_PASSWORD);
         }
 
-        if (password.length() < 10 || password.length() > 17 || !password.matches("^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{10,16}$")) {
+        if (!password.matches("^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{10,16}$")) {
             // WEAK_PASSWORD
             return ResponseDto.setFailed(ResponseMessage.VALIDATION_FAIL);
         }
